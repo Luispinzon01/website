@@ -1,0 +1,137 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-content: end;
+  overflow: hidden;
+  background: radial-gradient(120% 70% at 80% 0%, rgba(255, 255, 255, 0.08), transparent 55%),
+    radial-gradient(90% 60% at 10% 100%, rgba(255, 255, 255, 0.04), transparent 60%), var(--void);
+  padding-bottom: clamp(2rem, 6vh, 4.5rem);
+}
+.photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(68vw, 56rem);
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
+  opacity: 0.88;
+}
+/* Blend the photo into the violet-black ground on its open edges (§4.3: text
+   over media always gets a real scrim — this gradient IS the scrim, measured
+   so it reaches near-solid --void by the point the copy sits). */
+.shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      90deg,
+      var(--void) 18%,
+      rgba(0, 0, 0, 0.55) 45%,
+      rgba(0, 0, 0, 0.1) 70%,
+      rgba(0, 0, 0, 0.35)
+    ),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 30%, transparent 55%, var(--void) 92%);
+}
+@media (max-width: 48rem) {
+  .photo {
+    width: 100%;
+    opacity: 0.5;
+    object-position: 50% 18%;
+  }
+  .shade {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.35) 45%, var(--void) 90%);
+  }
+}
+.wave {
+  position: absolute;
+  inset: auto 0 0 0;
+  width: 100%;
+  height: 46vh;
+  display: block;
+  opacity: 0.9;
+  pointer-events: none;
+}
+.inner {
+  position: relative;
+  z-index: 1;
+}
+.name {
+  margin: 0 0 0.6rem;
+}
+.name img {
+  width: clamp(9rem, 34vw, 26rem);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+.fullName {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 4.5vw, 2.6rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin: 0 0 1.4rem;
+}
+.fullName b {
+  color: var(--ink);
+  font-weight: 800;
+}
+.sub {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 2.4rem;
+  align-items: baseline;
+  border-top: 1px solid var(--stroke);
+  padding-top: 1.1rem;
+  max-width: 58rem;
+}
+.sub p {
+  margin: 0;
+  color: var(--dim);
+  max-width: 46ch;
+}
+.coords {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--faint);
+  white-space: nowrap;
+}
+
+/* ---------- motto marquee ---------- */
+.marquee {
+  border-block: 1px solid var(--stroke);
+  background: var(--deep);
+  overflow: hidden;
+  padding-block: 0.85rem;
+}
+.marqueeTrack {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  animation: slide 36s linear infinite;
+}
+@keyframes slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marqueeTrack span {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--faint);
+  white-space: nowrap;
+}
+.marqueeTrack span::after {
+  content: "●";
+  color: var(--red);
+  font-size: 0.5rem;
+  vertical-align: middle;
+  margin-left: 3rem;
+}

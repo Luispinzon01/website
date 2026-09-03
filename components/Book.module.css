@@ -1,0 +1,66 @@
+.book {
+  background: var(--deep);
+  border-block: 1px solid var(--stroke);
+}
+.grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (min-width: 56rem) {
+  .grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+.types {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--stroke);
+  margin: 0;
+  padding: 0;
+}
+.types li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1rem 0.2rem;
+  border-bottom: 1px solid var(--stroke);
+}
+.types .t {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.types .d {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+  text-align: right;
+}
+.ctaPanel {
+  background: linear-gradient(160deg, var(--card-a), var(--card-b) 55%, var(--card-c));
+  border: 1px solid var(--stroke-hot);
+  border-radius: 6px;
+  padding: 2rem 1.8rem;
+  display: grid;
+  gap: 1rem;
+}
+.ctaPanel h3 {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1;
+}
+.ctaPanel p {
+  margin: 0;
+  color: var(--dim);
+  font-size: 0.95rem;
+}

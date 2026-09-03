@@ -1,0 +1,92 @@
+.ticket {
+  background: var(--paper);
+  color: var(--paper-ink);
+  border-radius: 4px;
+  max-width: 46rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  font-family: var(--mono);
+  overflow: hidden;
+}
+.head {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 2px solid var(--paper-ink);
+}
+.head .lp {
+  width: 2.6rem;
+  height: 2.6rem;
+  object-fit: contain;
+  padding: 0.5rem 1.1rem;
+  border-right: 2px solid var(--paper-ink);
+}
+.head .label {
+  align-self: center;
+  padding-inline: 1.1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.rows {
+  display: grid;
+}
+.row {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr auto;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.95rem 1.1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+.row:last-child {
+  border-bottom: none;
+}
+.row .date {
+  font-weight: 500;
+  white-space: nowrap;
+}
+.row .venue {
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+/* rgba alpha bumped from the original 0.55 to 0.7 — the lighter value
+   measured 3.88:1 on --paper, under the 4.5 AA floor for body-size text
+   (design system §1.2/§2.4). 0.7 measures 6.33:1. */
+.row .city {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.7);
+  text-align: right;
+  white-space: nowrap;
+}
+.row.next {
+  background: rgba(0, 0, 0, 0.05);
+}
+.row.next .date::before {
+  content: "▸ ";
+  color: var(--paper-ink);
+}
+.foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 1.1rem;
+  border-top: 2px solid var(--paper-ink);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+/* Was --faint (3.36:1 on void, fails AA body) for a real sentence.
+   Moved to --dim (7.71:1) — see design system §2.4.3. */
+.note {
+  margin-top: 1.4rem;
+  font-size: 0.9rem;
+  color: var(--dim);
+  max-width: var(--measure);
+}
+.note a {
+  color: var(--gold);
+}

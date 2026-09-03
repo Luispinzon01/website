@@ -1,0 +1,50 @@
+/* Slim three-up utility strip — borrowed from johnsummitmusic.com's bottom
+   bar (STREAM SPOTIFY / STREAM APPLE MUSIC / PRE-ORDER VINYL): equal
+   columns, a hairline grid, small tracked caps, one action each. LP has no
+   merch or streaming release, so the three actions are the site's real
+   quick-actions instead: book, follow, browse. */
+.bar {
+  border-block: 1px solid var(--stroke);
+  background: var(--deep);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.item {
+  display: block;
+  text-align: center;
+  padding: 1.1rem 0.5rem;
+  text-decoration: none;
+  border-right: 1px solid var(--stroke);
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.grid > a:last-child {
+  border-right: none;
+}
+.item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+.label {
+  display: block;
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.sub {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+@media (max-width: 34rem) {
+  .sub {
+    display: none;
+  }
+}

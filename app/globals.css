@@ -1,0 +1,237 @@
+/* ============================================================
+   LP — LUIS PINZÓN · Atlanta house DJ
+   Monochrome by design, after domdolla.com: true black grounds,
+   full-strength white type, no chromatic accent. Hierarchy comes
+   from lightness and weight instead of hue — the John Summit-style
+   moves (oversized headline, geometric photo tab, utility bar) and
+   the ticket card underneath are unchanged; only color moved.
+
+   --red/--red-deep/--gold keep their original NAMES (too many
+   components reference them to rename) but are now achromatic:
+   --red is the one "hot" emphasis tone (pure white), --red-deep its
+   dimmed hover state, --gold a slightly receded neutral for
+   secondary labels. Renaming would touch every component for zero
+   behavioral gain — the role each token plays (§2.1) hasn't changed.
+
+   Token roles follow the brand-agnostic structure in
+   docs/DESIGN-SYSTEM.md §2.1:
+     ink/ink-deep  = the two dark grounds (paper/paper-alt inverted)
+     paper         = the one light surface (the ticket card)
+     on-dark       = --ink, full-strength, never a gray (§2.4.3)
+     muted         = --dim, a floor not a default (§2.4.2)
+     accent        = --red (hot, single-use) + --gold (secondary)
+
+   Every pair below was run through the §1.2 formula, not eyeballed:
+     ink #fff on void/deep       21.00 / 18.73   (body text)
+     dim #b8b8b8 on void/deep    10.59 /  9.44   (secondary text)
+     dim #b8b8b8 on card-a        8.21           (card copy)
+     gold #e6e6e6 on void        18.18           (labels, links)
+     red  #fff on card-a         15.85           (accent glyphs)
+     paper-ink #000 on paper #fff 21.00          (ticket card)
+   --faint (4.24 on void) fails AA body text — by design it is used
+   only for mono labels/timecodes/credits, never paragraphs (§2.4.3).
+   Two spots that WERE using it for real sentences (the dates note,
+   the footer credit line) were moved to --dim; see components.
+   ============================================================ */
+:root {
+  --void: #000000; /* page ground — true black, matches domdolla.com's nav/sections */
+  --deep: #121212; /* section ground — domdolla.com's exact body background */
+  --surface: #1a1a1a; /* raised surface */
+  --card-a: #202020; /* card gradient stops — neutral, no hue */
+  --card-b: #161616;
+  --card-c: #0d0d0d;
+  --stroke: rgba(255, 255, 255, 0.14); /* white hairline */
+  --stroke-hot: rgba(255, 255, 255, 0.35);
+  --ink: #ffffff; /* primary text — pure white */
+  --dim: #b8b8b8; /* secondary text, neutral grey */
+  --faint: #707070; /* labels/timecodes only — fails AA body, see above */
+  --red: #ffffff; /* the one hot accent, now white instead of hue */
+  --red-deep: #d6d6d6; /* dimmed hover state for --red */
+  --gold: #e6e6e6; /* secondary label tone, near-white */
+  --paper: #ffffff; /* the ticket card */
+  --paper-ink: #000000;
+
+  --display: var(--font-display), "Arial Narrow", "Impact", sans-serif;
+  --body: var(--font-body), "Helvetica Neue", Arial, sans-serif;
+  --mono: var(--font-mono), "SFMono-Regular", Consolas, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --measure: 62ch;
+
+  /* Motion — design system §7. Animate transform/opacity only (§1.4). */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 0.25s;
+  --dur: 0.45s;
+  --dur-slow: 0.7s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem; /* sticky nav never covers anchors (§6) */
+}
+@media (prefers-reduced-motion: reduce) {
+  /* §1.5: reduced motion must be a finished still, not just "off". */
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--void);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Grain — design system §6.3. One texture tying flat sections to the
+   photography. Fixed, non-interactive, not animated: a tiled SVG
+   feTurbulence (fractalNoise, baseFrequency 0.82, 4 octaves, desaturated),
+   220px tile, multiply blend, 0.05 opacity, inlined as a data URI. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22220%22%20height%3D%22220%22%3E%3Cfilter%20id%3D%22n%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.82%22%20numOctaves%3D%224%22%20stitchTiles%3D%22stitch%22%20result%3D%22noise%22%2F%3E%3CfeColorMatrix%20in%3D%22noise%22%20type%3D%22saturate%22%20values%3D%220%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20filter%3D%22url(%23n)%22%2F%3E%3C%2Fsvg%3E");
+  background-size: 220px 220px;
+}
+
+::selection {
+  background: var(--red);
+  color: var(--void);
+}
+
+a {
+  color: var(--gold);
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.wrap {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Skip link — design system §9 accessibility floor. */
+.skipLink {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 100;
+  background: var(--gold);
+  color: var(--void);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.6rem 1rem;
+  border-radius: 3px;
+  transition: top var(--dur-fast) var(--ease-out);
+}
+.skipLink:focus {
+  top: 1rem;
+}
+
+/* ---------- sections shared rhythm ---------- */
+section {
+  padding-block: clamp(4rem, 9vw, 7.5rem);
+}
+.secHead {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+.secHead .kicker::before {
+  background: var(--gold);
+}
+.secHead h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin: 0;
+  text-wrap: balance;
+}
+.secHead p {
+  margin: 0.4rem 0 0;
+  color: var(--dim);
+  max-width: var(--measure);
+  text-wrap: pretty;
+}
+
+.kicker {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 0.75rem;
+}
+.kicker::before {
+  content: "";
+  display: inline-block;
+  width: 2.2rem;
+  height: 1px;
+  background: var(--red);
+  vertical-align: middle;
+  margin-right: 0.7rem;
+}
+
+.btn {
+  display: inline-block;
+  justify-self: start;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--void);
+  background: var(--red);
+  border: 1px solid var(--red);
+  padding: 0.85rem 1.6rem;
+  border-radius: 3px;
+  transition: background var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+.btn:hover {
+  background: var(--red-deep);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btnGhost {
+  background: transparent;
+  color: var(--gold);
+  border-color: var(--stroke);
+}
+.btnGhost:hover {
+  background: rgba(255, 255, 255, 0.08);
+}

@@ -1,0 +1,84 @@
+.sound {
+  background: var(--deep);
+  border-block: 1px solid var(--stroke);
+}
+.top {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+@media (min-width: 56rem) {
+  .top {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+}
+.top .head {
+  margin-bottom: 0;
+}
+.fig {
+  margin: 0;
+  justify-self: center;
+  display: grid;
+  gap: 0.5rem;
+  max-width: 24rem;
+  width: 100%;
+}
+.fig img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid var(--stroke);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+.fig figcaption {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  text-align: right;
+}
+.cards {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+.card {
+  background: linear-gradient(160deg, var(--card-a), var(--card-b) 55%, var(--card-c));
+  border: 1px solid var(--stroke);
+  border-radius: 6px;
+  padding: 1.6rem 1.5rem 1.4rem;
+  display: grid;
+  gap: 0.55rem;
+  align-content: start;
+  transition: transform var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out);
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--stroke-hot);
+}
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: none;
+  }
+}
+.card .idx {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  color: var(--red);
+}
+.card h3 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+.card p {
+  margin: 0;
+  color: var(--dim);
+  font-size: 0.95rem;
+}
