@@ -180,20 +180,6 @@ export const galleryGroups: GalleryGroup[] = [
         alt: "A woman dancing with her arm raised, drink in hand, under red light",
         caption: "Hands up again",
       },
-      {
-        src: "/photos/gallery-mirage-candid-2.jpg",
-        width: 1599,
-        height: 2000,
-        alt: "A crowd dancing with arms raised under red light near the DJ booth",
-        caption: "More of the floor",
-      },
-      {
-        src: "/photos/gallery-mirage-crowd-2.jpg",
-        width: 1599,
-        height: 2000,
-        alt: "A packed dance floor under red light, mid-set",
-        caption: "Packed floor",
-      },
     ],
   },
   {
@@ -226,9 +212,9 @@ export const galleryGroups: GalleryGroup[] = [
     ],
   },
   {
-    slug: "lounge",
+    slug: "close-friends",
     kicker: "09.11 · Atlanta",
-    title: "Lounge Session",
+    title: "Close Friends",
     photos: [
       {
         src: "/photos/gallery-lounge-portrait.jpg",
@@ -258,6 +244,20 @@ export const galleryGroups: GalleryGroup[] = [
         height: 1000,
         alt: "LP DJing with headphones on, colorful light trails streaking across the frame",
         caption: "Lights in motion",
+      },
+      {
+        src: "/photos/gallery-mirage-candid-2.jpg",
+        width: 1599,
+        height: 2000,
+        alt: "A crowd dancing with arms raised under red light near the DJ booth",
+        caption: "More of the floor",
+      },
+      {
+        src: "/photos/gallery-mirage-crowd-2.jpg",
+        width: 1599,
+        height: 2000,
+        alt: "A packed dance floor under red light, mid-set",
+        caption: "Packed floor",
       },
     ],
   },
