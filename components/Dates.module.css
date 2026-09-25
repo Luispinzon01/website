@@ -1,7 +1,8 @@
 .ticket {
-  background: var(--paper);
-  color: var(--paper-ink);
-  border-radius: 4px;
+  background: linear-gradient(160deg, var(--card-a), var(--card-b) 55%, var(--card-c));
+  color: var(--ink);
+  border: 1px solid var(--stroke);
+  border-radius: 6px;
   max-width: 46rem;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
   font-family: var(--mono);
@@ -10,14 +11,14 @@
 .head {
   display: flex;
   align-items: stretch;
-  border-bottom: 2px solid var(--paper-ink);
+  border-bottom: 1px solid var(--stroke);
 }
 .head .lp {
   width: 2.6rem;
   height: 2.6rem;
   object-fit: contain;
   padding: 0.5rem 1.1rem;
-  border-right: 2px solid var(--paper-ink);
+  border-right: 1px solid var(--stroke);
 }
 .head .label {
   align-self: center;
@@ -25,62 +26,113 @@
   font-size: 0.75rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  color: var(--dim);
 }
-.rows {
-  display: grid;
+
+/* ---------- carousel track ---------- */
+.track {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
 }
-.row {
+.track::-webkit-scrollbar {
+  display: none;
+}
+.card {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
   display: grid;
   grid-template-columns: 6.5rem 1fr auto;
   gap: 1rem;
   align-items: baseline;
-  padding: 0.95rem 1.1rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 1.3rem 1.5rem;
+  border-bottom: 1px solid var(--stroke);
   font-size: 0.85rem;
   letter-spacing: 0.04em;
+  position: relative;
+  opacity: 0.55;
+  transition: opacity var(--dur) var(--ease-out), background var(--dur) var(--ease-out);
 }
-.row:last-child {
+.card.active {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.04);
+}
+.card:last-child {
   border-bottom: none;
 }
-.row .date {
+.card .tag {
+  position: absolute;
+  top: 0.6rem;
+  right: 1.1rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--void);
+  background: var(--red);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+}
+.card .date {
   font-weight: 500;
   white-space: nowrap;
+  color: var(--ink);
 }
-.row .venue {
+.card .venue {
   font-family: var(--body);
   font-weight: 700;
   font-size: 0.95rem;
+  color: var(--ink);
 }
-/* rgba alpha bumped from the original 0.55 to 0.7 — the lighter value
-   measured 3.88:1 on --paper, under the 4.5 AA floor for body-size text
-   (design system §1.2/§2.4). 0.7 measures 6.33:1. */
-.row .city {
+.card .city {
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.7);
+  color: var(--dim);
   text-align: right;
   white-space: nowrap;
 }
-.row.next {
-  background: rgba(0, 0, 0, 0.05);
-}
-.row.next .date::before {
+.card.active .date::before {
   content: "▸ ";
-  color: var(--paper-ink);
+  color: var(--red);
 }
+
+/* ---------- carousel dots ---------- */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid var(--stroke);
+}
+.dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--stroke-hot);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+.dot:hover {
+  transform: scale(1.2);
+}
+.dotActive {
+  background: var(--red);
+}
+
 .foot {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   padding: 0.6rem 1.1rem;
-  border-top: 2px solid var(--paper-ink);
   font-size: 0.7rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  color: var(--dim);
 }
-/* Was --faint (3.36:1 on void, fails AA body) for a real sentence.
-   Moved to --dim (7.71:1) — see design system §2.4.3. */
 .note {
   margin-top: 1.4rem;
   font-size: 0.9rem;

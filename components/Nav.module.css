@@ -24,6 +24,10 @@
   width: 2.1rem;
   height: 2.1rem;
   object-fit: contain;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.mark:hover .lp {
+  transform: scale(1.15) rotate(-8deg);
 }
 .full {
   font-family: var(--mono);

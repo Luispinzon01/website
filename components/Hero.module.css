@@ -65,6 +65,22 @@
   height: auto;
   aspect-ratio: 1 / 1;
   object-fit: contain;
+  animation: mark-breathe 6s var(--ease-in-out) infinite;
+  transition: transform var(--dur) var(--ease-out);
+  will-change: transform;
+}
+.name img:hover {
+  transform: scale(1.05) rotate(-3deg);
+  animation-play-state: paused;
+}
+@keyframes mark-breathe {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.03) rotate(1.5deg);
+  }
 }
 .fullName {
   font-family: var(--display);
@@ -101,6 +117,10 @@
   white-space: nowrap;
 }
 
+.bookBtn {
+  margin-top: 1.4rem;
+}
+
 /* ---------- motto marquee ---------- */
 .marquee {
   border-block: 1px solid var(--stroke);
@@ -134,4 +154,7 @@
   font-size: 0.5rem;
   vertical-align: middle;
   margin-left: 3rem;
+}
+.marqueeTrack .avail {
+  color: var(--ink);
 }

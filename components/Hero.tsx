@@ -26,29 +26,29 @@ export default function Hero() {
             <b>Luis Pinzón</b>
           </p>
           <div className={styles.sub}>
-            <p>
-              House music for rooms that feel good — rooftops, neighborhood pubs and beach bars. Keeping it
-              simple. More coming soon.
-            </p>
+            <p>House music, good energy, and a reason to stay for one more song.</p>
             <span className={styles.coords}>33.7490° N / 84.3880° W — ATL</span>
           </div>
+          <a className={`btn ${styles.bookBtn}`} href="#book">
+            Book LP →
+          </a>
         </div>
       </header>
 
       <div className={styles.marquee} aria-hidden="true">
         <div className={styles.marqueeTrack}>
-          <span>House Music</span>
-          <span>Soli Deo Gloria</span>
-          <span>Atlanta</span>
-          <span>Amor Fati</span>
-          <span>Keeping It Simple</span>
-          <span>Auburn</span>
-          <span>House Music</span>
-          <span>Soli Deo Gloria</span>
-          <span>Atlanta</span>
-          <span>Amor Fati</span>
-          <span>Keeping It Simple</span>
-          <span>Auburn</span>
+          <span className={styles.avail}>Available For</span>
+          <span>Clubs</span>
+          <span>Lounges</span>
+          <span>Rooftops</span>
+          <span>Private Events</span>
+          <span>Brand Activations</span>
+          <span className={styles.avail}>Available For</span>
+          <span>Clubs</span>
+          <span>Lounges</span>
+          <span>Rooftops</span>
+          <span>Private Events</span>
+          <span>Brand Activations</span>
         </div>
       </div>
     </>
