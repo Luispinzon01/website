@@ -113,8 +113,8 @@ export type GalleryGroup = {
 export const galleryGroups: GalleryGroup[] = [
   {
     slug: "mirage",
-    kicker: "08.28 · Atlanta",
-    title: "Mirage @ El Valle",
+    kicker: "Atlanta",
+    title: "Mirage",
     photos: [
       {
         src: "/photos/gallery-mirage-booth.jpg",
@@ -184,7 +184,7 @@ export const galleryGroups: GalleryGroup[] = [
   },
   {
     slug: "velvet",
-    kicker: "09.09 · Atlanta",
+    kicker: "Atlanta",
     title: "Velvet Residence",
     photos: [
       {
@@ -213,7 +213,7 @@ export const galleryGroups: GalleryGroup[] = [
   },
   {
     slug: "close-friends",
-    kicker: "09.11 · Atlanta",
+    kicker: "Atlanta",
     title: "Close Friends",
     photos: [
       {
