@@ -56,6 +56,11 @@
 .inner {
   position: relative;
   z-index: 1;
+  /* Pin the hero copy to the left edge on wide screens instead of
+     centering it in the 72rem .wrap column. */
+  max-width: none;
+  margin-inline: 0;
+  width: 100%;
 }
 .name {
   margin: 0 0 0.6rem;

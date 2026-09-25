@@ -9,6 +9,8 @@
   border-bottom: 1px solid var(--stroke);
 }
 .inner {
+  max-width: none;
+  margin-inline: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
