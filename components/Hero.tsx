@@ -25,7 +25,6 @@ export default function Hero() {
             <b>Luis Pinzón</b>
           </p>
           <div className={styles.sub}>
-            <p>House music, good energy, and a reason to stay for one more song.</p>
             <span className={styles.coords}>33.7490° N / 84.3880° W — ATL</span>
           </div>
           <a className={`btn ${styles.bookBtn}`} href="#book">
