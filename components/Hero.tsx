@@ -13,7 +13,7 @@ export default function Hero() {
           width={1600}
           height={2400}
           priority
-          sizes="(max-width: 48rem) 100vw, 68vw"
+          sizes="100vw"
         />
         <div className={styles.shade} aria-hidden="true" />
         <Wave />
