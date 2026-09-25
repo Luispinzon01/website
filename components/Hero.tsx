@@ -18,7 +18,6 @@ export default function Hero() {
         <div className={styles.shade} aria-hidden="true" />
         <Wave />
         <div className={`wrap ${styles.inner}`}>
-          <p className="kicker">House DJ · Auburn | Atlanta</p>
           <h1 className={styles.name}>
             <Image src="/logo/lp-mark-dark.png" alt="LP" width={480} height={480} priority />
           </h1>
