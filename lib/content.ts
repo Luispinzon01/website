@@ -9,6 +9,7 @@ export type NavLink = {
 
 export const navLinks: NavLink[] = [
   { href: "#sound", label: "Sound" },
+  { href: "#events", label: "Events" },
   { href: "#gallery", label: "Gallery" },
   { href: "#dates", label: "Dates" },
   { href: "#book", label: "Book →", isCta: true },
@@ -63,6 +64,29 @@ export const rooms: Room[] = [
     title: "Beach & Daytime",
     copy: "Sun-up sets on the coast — Grayton Beach afternoons. Easy tempo, good vibes, no rush.",
   },
+];
+
+export type UpcomingEvent = {
+  date: string;
+  title: string;
+  venue: string;
+  time: string;
+  /** Ticket link; omitted when there isn't one yet. */
+  tickets?: string;
+};
+
+export const upcomingFlyer = {
+  src: "/photos/flyer-halloween.jpg",
+  width: 1080,
+  height: 1920,
+  alt: "Halloween with Luis Pinzon flyer: two ghosts on a swing set, tickets in bio, with the four Halloween dates listed below",
+};
+
+export const upcomingEvents: UpcomingEvent[] = [
+  { date: "10 · 28", title: "Halloween Bar Crawl", venue: "Emilo's / McCray's Tavern", time: "8PM – 1AM" },
+  { date: "10 · 30", title: "Atlas Productions Halloween Countdown", venue: "Botánico", time: "11PM – 3AM", tickets: "https://posh.vip/e/countdown-to-hallowen" },
+  { date: "10 · 31", title: "Close Friends ATL — Dreams & Nightmares", venue: "New Realm / Azara", time: "9PM – 10:30PM", tickets: "https://peerpop.io/view/events/dreamsnightmareshalloweenpartybyclosefriendsatlxazaraxnewrealm" },
+  { date: "10 · 31", title: "Velvet Residence Halloween Soirée", venue: "Gypsy Kitchen", time: "11PM – 1:30AM", tickets: "https://posh.vip/e/velvet-residence-halloween-soire-gypsy-kitchen" },
 ];
 
 export type TourDate = {

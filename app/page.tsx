@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import ActionBar from "@/components/ActionBar";
 import Sound from "@/components/Sound";
+import Events from "@/components/Events";
 import Gallery from "@/components/Gallery";
 import Dates from "@/components/Dates";
 import Book from "@/components/Book";
@@ -15,6 +16,7 @@ export default function Home() {
         <Hero />
         <ActionBar />
         <Sound />
+        <Events />
         <Gallery />
         <Dates />
         <Book />
