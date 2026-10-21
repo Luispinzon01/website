@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { upcomingEvents, upcomingFlyer, socials } from "@/lib/content";
+import { upcomingEvents, upcomingFlyer } from "@/lib/content";
 import styles from "./Events.module.css";
 
 export default function Events() {
@@ -39,9 +39,6 @@ export default function Events() {
                 </li>
               ))}
             </ul>
-            <a className="btn" href={socials.instagram} target="_blank" rel="noopener">
-              Tickets in bio →
-            </a>
           </div>
         </div>
       </div>

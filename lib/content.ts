@@ -8,8 +8,8 @@ export type NavLink = {
 };
 
 export const navLinks: NavLink[] = [
-  { href: "#sound", label: "Sound" },
   { href: "#events", label: "Events" },
+  { href: "#sound", label: "Sound" },
   { href: "#gallery", label: "Gallery" },
   { href: "#dates", label: "Dates" },
   { href: "#book", label: "Book →", isCta: true },

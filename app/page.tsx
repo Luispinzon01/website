@@ -14,9 +14,9 @@ export default function Home() {
       <Nav />
       <main id="main">
         <Hero />
+        <Events />
         <ActionBar />
         <Sound />
-        <Events />
         <Gallery />
         <Dates />
         <Book />
