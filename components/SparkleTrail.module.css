@@ -1,0 +1,22 @@
+.layer {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  pointer-events: none;
+  overflow: hidden;
+}
+.spark {
+  position: absolute;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9), 0 0 18px rgba(200, 200, 200, 0.6);
+  transform: translate(-50%, -50%) rotate(var(--r)) scale(var(--s));
+  animation: spark 0.8s var(--ease-out) forwards;
+}
+@keyframes spark {
+  to {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 18px)) rotate(calc(var(--r) + 90deg)) scale(0.2);
+  }
+}
