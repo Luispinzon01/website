@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Big_Shoulders, Schibsted_Grotesk, Spline_Sans_Mono } from "next/font/google";
+import { Big_Shoulders } from "next/font/google";
 import "./globals.css";
 
 // next/font self-hosts these at build time — no runtime request to Google
@@ -10,21 +10,6 @@ const bigShoulders = Big_Shoulders({
   subsets: ["latin"],
   weight: ["500", "800", "900"],
   variable: "--font-display",
-  display: "swap",
-});
-
-const schibstedGrotesk = Schibsted_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-body",
-  display: "swap",
-});
-
-const splineSansMono = Spline_Sans_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-mono",
   display: "swap",
 });
 
@@ -42,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${bigShoulders.variable} ${schibstedGrotesk.variable} ${splineSansMono.variable}`}>
+    <html lang="en" className={`${bigShoulders.variable}`}>
       <body>
         {/* Design system §9: skip link to #main. */}
         <a href="#main" className="skipLink">

@@ -111,7 +111,10 @@
   margin: 0 0 1.4rem;
 }
 .fullName b {
-  color: var(--ink);
+  background: var(--chrome);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   font-weight: 800;
 }
 .sub {

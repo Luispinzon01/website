@@ -52,6 +52,10 @@
   gap: 1rem;
 }
 .ctaPanel h3 {
+  background: var(--chrome);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   font-family: var(--display);
   font-weight: 900;
   font-size: 2rem;

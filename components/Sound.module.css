@@ -70,6 +70,10 @@
   color: var(--red);
 }
 .card h3 {
+  background: var(--chrome);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   font-family: var(--display);
   font-weight: 800;
   font-size: 1.65rem;

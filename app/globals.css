@@ -48,12 +48,13 @@
   --red: #ffffff; /* the one hot accent, now white instead of hue */
   --red-deep: #d6d6d6; /* dimmed hover state for --red */
   --gold: #e6e6e6; /* secondary label tone, near-white */
+  --chrome: linear-gradient(180deg, #fff 0%, #e6e6e6 40%, #8c8c8c 50%, #f0f0f0 62%, #fff 100%);
   --paper: #ffffff; /* the ticket card */
   --paper-ink: #000000;
 
   --display: var(--font-display), "Arial Narrow", "Impact", sans-serif;
-  --body: var(--font-body), "Helvetica Neue", Arial, sans-serif;
-  --mono: var(--font-mono), "SFMono-Regular", Consolas, monospace;
+  --body: var(--display); /* single family site-wide */
+  --mono: var(--display); /* one family for all caps/UI text */
 
   --gutter: clamp(1.25rem, 4vw, 3rem);
   --measure: 62ch;
@@ -92,8 +93,10 @@ body {
   background: var(--void);
   color: var(--ink);
   font-family: var(--body);
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -173,7 +176,7 @@ section {
 }
 .secHead h2 {
   /* Y2K chrome: vertical silver bands, hard horizon line mid-letter. */
-  background: linear-gradient(180deg, #fff 0%, #e6e6e6 40%, #8c8c8c 50%, #f0f0f0 62%, #fff 100%);
+  background: var(--chrome);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
