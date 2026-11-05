@@ -2,7 +2,6 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import ActionBar from "@/components/ActionBar";
 import Sound from "@/components/Sound";
-import Events from "@/components/Events";
 import StickerWall from "@/components/StickerWall";
 import DragStrip from "@/components/DragStrip";
 import ElectricTrail from "@/components/ElectricTrail";
@@ -18,7 +17,6 @@ export default function Home() {
       <main id="main">
         <Hero />
         <DragStrip />
-        <Events />
         <ActionBar />
         <Sound />
         <StickerWall />
