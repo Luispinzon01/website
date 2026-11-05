@@ -5,7 +5,7 @@ import Sound from "@/components/Sound";
 import Events from "@/components/Events";
 import StickerWall from "@/components/StickerWall";
 import DragStrip from "@/components/DragStrip";
-import SparkleTrail from "@/components/SparkleTrail";
+import ElectricTrail from "@/components/ElectricTrail";
 import Dates from "@/components/Dates";
 import Book from "@/components/Book";
 import Footer from "@/components/Footer";
@@ -13,7 +13,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      <SparkleTrail />
+      <ElectricTrail />
       <Nav />
       <main id="main">
         <Hero />
