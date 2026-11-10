@@ -70,10 +70,20 @@ export type TourDate = {
   venue: string;
   city: string;
   next?: boolean;
+  /** Ticket link; omitted for past shows. */
+  tickets?: string;
 };
 
 export const tourDates: TourDate[] = [
-  { date: "08 · 28", venue: "Mirage @ El Valle", city: "Atlanta, GA", next: true },
+  {
+    date: "11 · 20",
+    venue: "Mirage ATL — Vol. 22",
+    city: "Atlanta, GA",
+    next: true,
+    // Keeps ?t=luisp (Posh attribution code); tracking params stripped.
+    tickets: "https://posh.vip/e/mirage-atl-vol-xxii?t=luisp",
+  },
+  { date: "08 · 28", venue: "Mirage @ El Valle", city: "Atlanta, GA" },
   { date: "08 · 21", venue: "Clermont Rooftop", city: "Atlanta, GA" },
   { date: "05 · 23", venue: "Chiringo", city: "Grayton Beach, FL" },
   { date: "05 · 15", venue: "Neighbor's Pub — PorchFest Mic Check", city: "Virginia-Highland, ATL" },

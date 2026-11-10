@@ -108,6 +108,11 @@ export default function Dates() {
                 <span className={styles.date}>{d.date}</span>
                 <span className={styles.venue}>{d.venue}</span>
                 <span className={styles.city}>{d.city}</span>
+                {d.tickets && (
+                  <a className={styles.tix} href={d.tickets} target="_blank" rel="noopener">
+                    Tickets →
+                  </a>
+                )}
               </div>
             ))}
           </div>

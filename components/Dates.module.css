@@ -142,3 +142,37 @@
 .note a {
   color: var(--gold);
 }
+
+/* Ticket pill sits on its own row under the venue. */
+.tix {
+  grid-column: 2 / -1;
+  justify-self: start;
+  margin-top: 0.4rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--void);
+  background-image: linear-gradient(180deg, #fff 0%, #cfcfcf 100%);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 2px 14px rgba(255, 255, 255, 0.14);
+}
+.tix:hover {
+  background-image: linear-gradient(180deg, #fff 0%, #e2e2e2 100%);
+}
+
+/* Small screens: stack city under the venue and reserve a strip for the
+   "Next" tag so nothing collides or clips. */
+@media (max-width: 34rem) {
+  .card {
+    grid-template-columns: 4.6rem 1fr;
+    padding-top: 2.4rem;
+  }
+  .card .city {
+    grid-column: 2;
+    text-align: left;
+    white-space: normal;
+  }
+}
